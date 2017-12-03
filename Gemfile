@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'slim-rails'
+gem 'enumerize'
+gem 'virtus'
 
 group :development, :test do
   # For better debugging
