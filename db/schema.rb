@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203144840) do
+ActiveRecord::Schema.define(version: 20171203162924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171203144840) do
     t.bigint "tranche_id"
     t.integer "month_number"
     t.decimal "amount"
-    t.integer "type"
+    t.integer "repayment_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tranche_id"], name: "index_repayments_on_tranche_id"
