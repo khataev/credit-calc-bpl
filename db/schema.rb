@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203124318) do
+ActiveRecord::Schema.define(version: 20171203144840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20171203124318) do
     t.decimal "real_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "monthly_overdue_percent_payment"
+    t.decimal "monthly_overdue_total_payment"
     t.index ["loan_id"], name: "index_tranches_on_loan_id"
   end
 
