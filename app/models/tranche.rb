@@ -1,6 +1,6 @@
 class Tranche < ApplicationRecord
   belongs_to :loan
-  has_many :repayments
+  has_many :repayments, dependent: :delete_all
 
   validates :amount, presence: true
   validates :term, presence: true
