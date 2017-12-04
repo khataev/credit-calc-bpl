@@ -39,6 +39,9 @@ gem 'slim-rails'
 gem 'enumerize'
 gem 'virtus'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass-extras'
+
 group :development, :test do
   # For better debugging
   gem 'pry-byebug'
