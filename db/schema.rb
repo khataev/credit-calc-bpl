@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203162924) do
+ActiveRecord::Schema.define(version: 20171203184708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 20171203162924) do
   create_table "repayments", force: :cascade do |t|
     t.bigint "tranche_id"
     t.integer "month_number"
-    t.decimal "amount"
+    t.decimal "total_amount", default: "0.0"
     t.integer "repayment_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "main_debt", default: "0.0"
+    t.decimal "percent", default: "0.0"
     t.index ["tranche_id"], name: "index_repayments_on_tranche_id"
   end
 
@@ -41,8 +43,8 @@ ActiveRecord::Schema.define(version: 20171203162924) do
     t.decimal "monthly_percent_payment"
     t.decimal "monthly_total_payment"
     t.decimal "total_to_pay"
-    t.decimal "percent_repaid"
-    t.decimal "main_debt_repaid"
+    t.decimal "percent_repaid", default: "0.0"
+    t.decimal "main_debt_repaid", default: "0.0"
     t.decimal "real_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

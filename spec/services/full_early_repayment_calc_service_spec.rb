@@ -13,8 +13,9 @@ RSpec.describe FullEarlyRepaymentCalcService do
   end
 
   it 'calculates full early repayment amount' do
+    expected_result = { main_debt: "499999.99".to_d, percent: "25000".to_d, total_amount: "524999.99".to_d }
     tranche = create :test_calculated_tranche
     result = FullEarlyRepaymentCalcService.new(tranche: tranche, month_number: 4).call
-    expect(result).to eq "524999.99".to_d
+    expect(result).to eq expected_result
   end
 end
