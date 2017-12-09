@@ -16,6 +16,7 @@ br
   = f.submit 'Рассчитать параметры платежа', class: 'btn btn-primary'
 -else
   = f.submit 'Сохранить', class: 'btn btn-primary'
+  = link_to 'Погашения', tranch_repayments_path(f.object), class: 'btn btn-info', method: :get
   = link_to 'Удалить', f.object, class: 'btn btn-danger', method: :delete, data: { confirm: "Вы уверены?" }
 .form-group
   = f.label :monthly_main_debt_payment, 'Ежемесячный по долгу'
@@ -29,3 +30,14 @@ br
 .form-group
   = f.label :total_to_pay, 'Сумма выплаты'
   = f.number_field :total_to_pay, class: 'form-control', disabled: true
+h3
+  span.label.label-info Параметры доходности
+.form-group
+  = f.label :percent_repaid, 'Выплачено %'
+  = f.number_field :percent_repaid, class: 'form-control', disabled: true
+.form-group
+  = f.label :main_debt_repaid, 'Выплачено ОД'
+  = f.number_field :main_debt_repaid, class: 'form-control', disabled: true
+.form-group
+  = f.label :real_rate_percent, 'Реальная доходность годовых, %'
+  = f.number_field :real_rate_percent, class: 'form-control', disabled: true

@@ -1,10 +1,18 @@
 .row
-  .form-group
-    = label_tag 'Наименование займа:'
-    | &nbsp
-    .form-control =@loan.name
-    br
-    = label_tag 'Транши:'
+  .col-md-10
+    .form-group
+      = label_tag 'Наименование займа:'
+      | &nbsp
+      .form-control =@loan.name
+.row.profit-params-row
+  .col-md-4
+    = link_to 'Рассчитать параметры доходности', calc_profit_loan_path(@loan),
+            method: :patch, remote: true, class: 'btn btn-primary', disabled: !@loan.can_calc?
+  .col-md-8
+    .profit-params
+      = render 'loans/profit_params'
+.row
+  h3 Состав займа:
 .row
   = render 'tranches/tranches', loan: @loan
 

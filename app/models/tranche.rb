@@ -7,12 +7,24 @@ class Tranche < ApplicationRecord
   validates :base_rate, presence: true
   validates :overdue_rate, presence: true
 
+  # TODO: нужен явный признак
+  scope :repaid, -> { where.not(real_rate: nil) }
+
   def base_rate_percent
     (base_rate || 0) * 100
   end
 
   def overdue_rate_percent
     (overdue_rate || 0) * 100
+  end
+
+  def real_rate_percent
+    (real_rate || 0) * 100
+  end
+
+  def repaid?
+    last_repayment = repayments.ordered.last
+    last_repayment&.full_early? || last_repayment&.month_number == term
   end
 
   # TODO: Вынести в отдельный сервис?

@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :load_loan, only: [:edit, :destroy]
+  before_action :load_loan, only: [:edit, :destroy, :calc_profit]
 
   def index
     respond_with(@loans = Loan.all)
@@ -24,6 +24,10 @@ class LoansController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def calc_profit
+    @profit_params = LoanProfitCalcService.new(loan: @loan).call
   end
 
   private

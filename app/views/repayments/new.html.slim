@@ -1,0 +1,9 @@
+/.row
+/  h1 Новое погашение
+/  = form_for [@tranche, @repayment] do |f|
+/    .col-md-8
+/      .form-group
+/        = f.label :name, 'Название'
+/        = f.text_field :name, placeholder: 'Введите название', class: 'form-control'
+/    br
+/    = f.submit 'Сохранить', class: 'btn btn-success pull-right'

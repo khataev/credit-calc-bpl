@@ -1,0 +1,29 @@
+.row
+  .col-md-10
+    h1 = "Погашения по траншу #{@tranche.id}"
+    = link_to 'К параметрам займа', edit_loan_path(@tranche.loan)
+.row
+  .col-md-10
+    - if @repayments.empty?
+      p Погашений еще нет
+    - else
+      = render @repayments
+      = link_to 'Удалить последнее погашение', delete_last_repayment_tranch_repayments_path(@tranche), class: 'btn btn-danger pull-right', method: :delete
+      = link_to 'Очистить погашения', clear_repayments_tranch_repayments_path(@tranche), class: 'btn btn-danger pull-right', method: :delete
+
+.row
+  - if @tranche.repaid?
+    h2 Транш погашен!
+.row
+  .col-md-2
+    = form_for tranch_repayments_path(@tranche) do |f|
+      = hidden_field :repayment, 'repayment_type', value: :in_time
+      = f.submit 'Погасить вовремя', class: 'btn btn-primary', disabled: @tranche_repaid
+  .col-md-2
+    = form_for tranch_repayments_path(@tranche) do |f|
+      = hidden_field :repayment, 'repayment_type', value: :overdue
+      = f.submit 'Погасить с просрочкой', class: 'btn btn-danger', disabled: @tranche_repaid
+  .col-md-2
+    = form_for tranch_repayments_path(@tranche) do |f|
+      = hidden_field :repayment, 'repayment_type', value: :full_early
+      = f.submit 'Погасить досрочно', class: 'btn btn-success', disabled: @tranche_repaid

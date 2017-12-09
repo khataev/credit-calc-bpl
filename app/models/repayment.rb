@@ -11,6 +11,8 @@ class Repayment < ApplicationRecord
   after_save :update_tranche
   after_destroy :update_tranche
 
+  scope :ordered, -> { order(month_number: :asc) }
+
   private
 
   def calculate_amounts!

@@ -1,0 +1,13 @@
+<%- params ||= {} %>
+<div class="form-group">
+  <%= label_tag 'Годовая доходность реалистично, %: ' %> &nbsp
+  <%= number_to_percentage(
+          params[:realistic_rate]*100,
+          precision: 2, strip_insignificant_zeros: true) if params[:realistic_rate]  %>
+</div>
+<div class="form-group">
+  <%= label_tag 'Годовая доходность оптимистично, %: ' %> &nbsp
+  <%= number_to_percentage(
+          params[:optimistic_rate]*100,
+          precision: 2, strip_insignificant_zeros: true) if params[:optimistic_rate] %>
+</div>
