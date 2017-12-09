@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Проект подключен к сервису непрерывной сборки - Travis-CI.org
 
-Things you may want to cover:
+{<img src="https://travis-ci.org/khataev/credit-calc-bpl.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/khataev/credit-calc-bpl]
 
-* Ruby version
+Демо https://credit-calc-bpl.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Тестовове задание: Калькулятор доходности по займу.

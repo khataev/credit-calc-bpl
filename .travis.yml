@@ -1,0 +1,9 @@
+sudo: required
+dist: trusty
+language: ruby
+services:
+  - postgresql
+script: bundle exec rspec
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
