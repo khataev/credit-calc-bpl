@@ -18,11 +18,11 @@
   .col-md-2
     = form_for tranch_repayments_path(@tranche) do |f|
       = hidden_field :repayment, 'repayment_type', value: :in_time
-      = f.submit 'Погасить вовремя', class: 'btn btn-primary', disabled: @tranche_repaid
+      = f.submit 'Внести вовремя', class: 'btn btn-primary', disabled: @tranche_repaid
   .col-md-2
     = form_for tranch_repayments_path(@tranche) do |f|
       = hidden_field :repayment, 'repayment_type', value: :overdue
-      = f.submit 'Погасить с просрочкой', class: 'btn btn-danger', disabled: @tranche_repaid
+      = f.submit 'Внести с просрочкой', class: 'btn btn-danger', disabled: @tranche_repaid
   .col-md-2
     = form_for tranch_repayments_path(@tranche) do |f|
       = hidden_field :repayment, 'repayment_type', value: :full_early
