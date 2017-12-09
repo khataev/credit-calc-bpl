@@ -4,7 +4,7 @@ common: &common
   host: localhost
   pool: 25
   username: khataev
-  password: khataev
+  password:
 
 development:
   <<: *common
