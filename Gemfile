@@ -38,13 +38,14 @@ gem 'jquery-rails'
 gem 'slim-rails'
 gem 'enumerize'
 gem 'virtus'
+gem 'responders'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-sass-extras'
 
 group :development, :test do
   # For better debugging
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   gem 'pry-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

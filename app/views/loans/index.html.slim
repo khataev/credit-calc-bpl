@@ -1,2 +1,12 @@
-h1 Loans#index
-p Find me in app/views/loans/index.html.slim
+.row
+  .col-md-10
+    h1 Список займов
+.row
+  .col-md-10
+    - if @loans.empty?
+      p Займов еще нет
+    - else
+      = render @loans
+
+.row
+  p= link_to 'Создать займ', new_loan_path

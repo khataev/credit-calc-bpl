@@ -1,0 +1,31 @@
+- new ||= false
+.form-group
+  = f.label :amount, 'Cумма'
+  = f.number_field :amount, class: 'form-control'
+.form-group
+  = f.label :term, 'Срок, мес'
+  = f.number_field :term, class: 'form-control'
+.form-group
+  = f.label :base_rate_percent, 'Ставка годовых, %'
+  = f.number_field :base_rate_percent, class: 'form-control'
+.form-group
+  = f.label :overdue_rate_percent, 'Ставка при просрочке годовых, %'
+  = f.number_field :overdue_rate_percent, class: 'form-control'
+br
+- if new
+  = f.submit 'Рассчитать параметры платежа', class: 'btn btn-primary'
+-else
+  = f.submit 'Сохранить', class: 'btn btn-primary'
+  = link_to 'Удалить', f.object, class: 'btn btn-danger', method: :delete, data: { confirm: "Вы уверены?" }
+.form-group
+  = f.label :monthly_main_debt_payment, 'Ежемесячный по долгу'
+  = f.number_field :monthly_main_debt_payment, class: 'form-control', disabled: true
+.form-group
+  = f.label :monthly_percent_payment, 'Ежемесячный по процентам'
+  = f.number_field :monthly_percent_payment, class: 'form-control', disabled: true
+.form-group
+  = f.label :monthly_total_payment, 'Общий ежемесячный'
+  = f.number_field :monthly_total_payment, class: 'form-control', disabled: true
+.form-group
+  = f.label :total_to_pay, 'Сумма выплаты'
+  = f.number_field :total_to_pay, class: 'form-control', disabled: true

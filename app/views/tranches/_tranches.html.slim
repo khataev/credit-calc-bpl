@@ -1,0 +1,10 @@
+/- Nav tabs
+.row.tabs-area
+  ul.nav.nav-tabs
+    - loan.tranches.each do |t|
+      = render 'tranches/nav_tab', tranche: t
+    li.add-new-tab
+      = link_to 'Добавить', new_loan_tranch_path(loan), remote: true, class: 'btn btn-success'
+/- Tab panels
+.row.tab-content
+  = render loan.tranches

@@ -1,0 +1,9 @@
+tab_content = $(".tab-content #tranche-content-#{tranche.id}")
+if ( tab_content.length == 1 ) {
+    tab_content.replaceWith("<%= j render 'tranche', tranche: @tranche %>");
+}
+<% if @tranche.errors.present? %>
+  <% @tranche.errors.full_messages.each do |message| %>
+    $(".tranche-errors").append('<%= j message %>' + '</br>');
+  <% end %>
+<% end %>

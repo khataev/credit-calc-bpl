@@ -1,2 +1,10 @@
-h1 Loans#edit
-p Find me in app/views/loans/edit.html.slim
+.row
+  .form-group
+    = label_tag 'Наименование займа:'
+    | &nbsp
+    .form-control =@loan.name
+    br
+    = label_tag 'Транши:'
+.row
+  = render 'tranches/tranches', loan: @loan
+

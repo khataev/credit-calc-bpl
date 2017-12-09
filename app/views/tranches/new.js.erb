@@ -1,0 +1,15 @@
+nav_tab = $('.tabs-area ul.nav.nav-tabs');
+tab_content = $('.tab-content');
+new_tranche_tab = $("#tranche-tab-new")
+if ( new_tranche_tab.length > 0 ) {
+    tab_content.html("<%= j render 'tranche', tranche: @tranche %>");
+} else {
+    nav_tab.append("<%= j render 'tranches/nav_tab', tranche: @tranche %>");
+    tab_content.append("<%= j render 'tranche', tranche: @tranche %>");
+//$('#tranche-tab-new').tab('show');
+}
+<% if @tranche.errors.present? %>
+  <% @tranche.errors.full_messages.each do |message| %>
+    $(".tranche-errors").append('<%= j message %>' + '</br>');
+  <% end %>
+<% end %>

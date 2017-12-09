@@ -1,0 +1,9 @@
+.row.tab-pane id="tranche-content-#{tranche.id || 'new'}"
+  .col-xs-5
+    .tranche-errors
+      - if tranche.new_record?
+        = form_for [@loan, tranche], remote: true, method: :post do |f|
+          = render 'form', f: f, new: true
+      - else
+        = form_for tranche, remote: true, method: :post do |f|
+          = render 'tranches/form', f: f

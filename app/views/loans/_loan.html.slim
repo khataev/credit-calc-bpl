@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading
+    .row
+      .col-md-12
+        = link_to loan.name, edit_loan_path(loan)
+        = link_to 'Удалить', loan, class: 'btn btn-danger pull-right', method: :delete, data: { confirm: "Вы уверены?" }
+        = link_to 'Редактировать', edit_loan_path(loan), class: 'btn btn-success pull-right'

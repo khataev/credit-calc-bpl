@@ -7,6 +7,14 @@ class Tranche < ApplicationRecord
   validates :base_rate, presence: true
   validates :overdue_rate, presence: true
 
+  def base_rate_percent
+    (base_rate || 0) * 100
+  end
+
+  def overdue_rate_percent
+    (overdue_rate || 0) * 100
+  end
+
   # TODO: Вынести в отдельный сервис?
   def update_repaid!(repayment, destroyed)
     self.main_debt_repaid +=  (destroyed ? -1 : 1) * repayment.main_debt
