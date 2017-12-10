@@ -19,7 +19,7 @@ class LoansController < ApplicationController
 
   def create
     @loan = Loan.new(loan_params)
-    if @loan.save!
+    if @loan.save
       redirect_to :loans, notice: 'Займ создан'
     else
       render action: :new
